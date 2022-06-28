@@ -1,5 +1,8 @@
 package be.ucll.book_interface.model.domain;
 
+/**
+ * A Book class
+ */
 public class Book {
     private String title;
     private int numberInStock;
