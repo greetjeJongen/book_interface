@@ -8,6 +8,9 @@ import be.ucll.book_interface.model.domain.Book;
 public class BookService {
     private List<Book> books = new ArrayList<>();
 
+    public BookService() {
+    }
+
     public List<Book> getBooks() {
         return books;
     }
