@@ -9,11 +9,15 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import be.ucll.book_interface.model.Library;
 import be.ucll.book_interface.model.domain.Book;
 
+@SpringBootTest
 public class BookService_test {
+    @Autowired
     private BookService service, emptyService;
     private Book aBookDonQuichot = Library.aBookDonQuichot();
     private Book aBookHarryPotter = Library.aBookHarryPotter();
@@ -24,9 +28,9 @@ public class BookService_test {
 
     @BeforeEach
     public void setUp() {
-        emptyService = new BookService();
+        // emptyService = new BookService();
 
-        service = new BookService();
+        // service = new BookService();
         service.addBook(aBookDonQuichot);
         service.addBook(aBookHarryPotter);
         service.addBook(aBookJaneEyre);

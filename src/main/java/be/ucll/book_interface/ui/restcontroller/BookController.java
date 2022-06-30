@@ -17,8 +17,8 @@ import be.ucll.book_interface.model.service.BookService;
 @RestController
 @RequestMapping("api/book")
 public class BookController {
-    // @Autowired
-    BookService bookService = new BookService();
+    @Autowired
+    BookService bookService;
 
     @PostMapping("/add")
     private boolean add(@RequestBody Book book) {
