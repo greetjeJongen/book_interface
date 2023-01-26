@@ -9,10 +9,10 @@ import javax.persistence.Id;
  * A Book class
  */
 @Entity
-public class Book {
+public abstract class Book implements Loanable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String title;
     private int numberInStock;
     private double price;
@@ -27,6 +27,14 @@ public class Book {
         this.title = title;
         this.numberInStock = numberInStock;
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -94,6 +102,19 @@ public class Book {
                 + getClassification() + " and is"
                 + not + " in color.";
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || !o.getClass().equals(this.getClass()))
+            return false;
+        Book other = (Book) o;
+        return other.getTitle().equals(this.getTitle());
+    }
+
+    @Override
+    public String getCode() {
+        return getId() + "-" + this.getClass().getSimpleName() + "-";
     }
 
 }
